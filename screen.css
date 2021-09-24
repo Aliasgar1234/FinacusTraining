@@ -9,6 +9,22 @@ img{
     max-width: 100%;
     height: auto;
 }
+
+.image{
+    position: relative;
+}
+
+.image img{
+    display: block;
+}
+.image-description{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, .65);
+    padding: 15px 20px;
+}
 .container{
     width: 940px;
     margin-left: auto;
@@ -20,7 +36,6 @@ img{
 }
 header{
     padding-top: 20px;
-    padding-bottom: 20px;
     color: #617140;
 }
 header h1{
@@ -31,6 +46,32 @@ header h1{
 header p{
     margin: 0;
 }
+
+.site-nav {
+    margin-top: 20px;
+}
+.site-nav ul{
+    margin: 0;
+    padding: 0;
+}
+.site-nav li{
+    display: block;
+    float: left;
+    margin-right: 5px;
+}
+.site-nav a{
+    display: block;
+    color: #617140;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 3px solid #e5e9dc;
+    border-bottom: none;
+}
+.site-nav a:hover{
+    background-color: #e5e9dc;
+}
+
+
 .content-area{
     border-top: 3px solid #e5e9dc;
     border-bottom: 3px solid #e5e9dc;
