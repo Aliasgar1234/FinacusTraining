@@ -1,0 +1,148 @@
+html,body{
+    padding: 0;
+    margin: 0;
+}
+input{
+    font-size: 12px;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: #888;
+    font-family: sans-serif;
+    padding-bottom: 100px;
+}
+h2,h3{
+    margin: 0 0 .75em 0;
+}
+
+.container{
+    max-width:750px ;
+    margin: 20px auto 0 auto;
+    padding: 30px;
+    background-color: #fff;
+}
+.form-row{
+    padding: 10px 0;
+    display: flex;
+}
+.form-row label{
+    padding-right: 10px;
+}
+.form-row input{
+    flex: 1;
+}
+
+.column-layout{
+    max-width: 1300px;
+    margin: 40px auto 0 auto;
+    background-color: #fff;
+    line-height:1.5;
+    display: flex;
+    padding: 20px 50px;
+}
+.main-column{
+    flex: 3;
+    order: 2;
+}
+.sidebar-one{
+    flex: 1;
+    order: 1;
+}
+.sidebar-two{
+    flex: 1;
+    order: 3;
+}
+
+.call-outs-container{
+    max-width: 1400px;
+    margin: 40px auto 0 auto;
+}
+.call-out{
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    flex-basis: 30%;
+}
+
+@media(min-width:900px){
+    .call-outs-container{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.call-out:nth-child(1){background-color: #c0dbe2;}
+.call-out:nth-child(2){background-color: #cdf1c3;}
+.call-out:nth-child(3){background-color: #ccb9da;}
+
+.fixed-size-container{
+    max-width: 1400px;
+    margin: 40px auto 0 auto;
+    background-color: #fff;
+    padding: 30px 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.fixed-size{
+    width: 100px;
+    height: 100px;
+    background-color: #990b47;
+    counter-reset: #555;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.fixed-size:hover{
+    background-color: violet;
+    transition: 500ms;
+    border-radius: 10px;
+    margin-top: -15px !important;
+}
+
+.banner{
+    height: 360px;
+    max-width: 700px;
+    margin: 40px auto 0 auto;
+    background-color: #2a2a2a;
+    display: flex;
+}
+.center-me{
+    color: #fff;
+    font-size: 45px;
+    margin: auto;
+}
+
+.equal-height-container{
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+}
+.first{
+    background-color: #fff;
+    padding: 20px;
+    flex: 1;
+}
+
+.second{
+    background-color: yellow;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.second-a{
+    background-color: #c0dbe2;
+    flex: 1;
+}
+.second-b{
+    background-color: #cdf1c3;
+    flex: 1;
+}
+
+
+
+
