@@ -29,6 +29,19 @@ h2,h3{
 .form-row label{
     padding-right: 10px;
 }
+
+input[type=submit]{
+    width: 100%;
+    display: block;
+    color: #fff;
+    box-sizing: border-box;
+    background-color: #869960;
+    padding:10px 0 ;
+    border: 1px solid #798a56;
+    border-radius: 3px;
+    outline: none;
+    margin-bottom: 10px;
+}
 .form-row input{
     flex: 1;
 }
