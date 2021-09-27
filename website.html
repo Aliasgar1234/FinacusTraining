@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Website.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="website.css">
+</head>
+<body>
+        <div class="bg-dark py-5 text-light shadow mb-4">
+            <div class="container">
+                <h1 class="display-2">Welcome to my demo Website!</h1>
+                <div class="container my-custom-container pt-3">
+                    <nav class="mb-3">
+                        <ul class="nav nav-tabs justify-content-center ">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#login">Login Page</a>
+                            </li>
+                            <li class="nav-item hide-small">
+                                <a class="nav-link"href="#">FAQs</a>
+                            </li>
+                            <li class="nav-item hide-small">
+                                <a class="nav-link"href="#operating-system">Operating System</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact">Contact Us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" id="home">
+                    <h3>Little bit about Myself!</h3>
+                    <p class="lead">My name is Shaikh Aliasgar.I live at Mumbai Sandhurst Road.I have completed M.Sc(IT) in 2021 securing 8.3 CGPA.My family consist of 6 people.Me,my parents my brother and sister.Always had an interest in computer which is why I have taken an I.T. field. </p>
+                    <div class="col-md-4">
+                        <p class="lead">You can login into the website using your mail id and use the exciting features at display there.</p>
+                    </div>
+                </div>
+                <div class="col-md-6" id="login">
+                    <div class="main-area">
+                        <form>
+                            <label for="email" class="hidden-label">E-Mail ID:</label>
+                        
+                        <input type="email" name="email" id="email" placeholder="enter your email-id.">
+            
+                            <label for="password" class="hidden-label">Password:</label>
+                            <input type="password" name="password" id="password" placeholder="enter your password">
+                            <label for="gender" class="gender">Select your gender.</label>
+                            <select>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Transgender</option>
+                            </select>
+                            <input type="submit" value="Sign-In">
+                            <input type="reset" value="Clear">
+                            <label>
+                                <input type="checkbox" name="remember" value="yes" checked="checked">Keep me signed in!
+                            </label>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+        
+        <div class="label">
+        <label>Different type of operating system.</label>
+    </div>
+        <div class="fixed-size-container">
+            
+            <div class="fixed-size" id="operating-system">
+                <img src="android-logo-red-dark-7dc46e.svg" id="windows-nav-icon" alt="Windows" title="Windows">
+                <label>Windows</label>
+            </div>
+            <div class="fixed-size">
+                <img src="chrome-logo-red-dark-dd5c7a.svg" id="windows-nav-icon" alt="Chrome" title="Chrome">
+                <label>Chrome</label>
+            </div>
+            <div class="fixed-size">
+                <img src="ios-logo-red-dark-db34d8.svg" id="windows-nav-icon" alt="Ios" title="IOS">
+                <label>Ios</label>
+            </div>
+            <div class="fixed-size">
+                <img src="linux-logo-red-dark-f11fd9.svg" id="windows-nav-icon" alt="Linux" title="Linux">
+                <label>Linux</label>
+            </div>
+            <div class="fixed-size">
+                <img src="mac-logo-red-dark-54544b.svg" id="windows-nav-icon" alt="MacOS" title="MacOS">
+                <label>MacOS</label>
+            </div>
+        </div>
+        <div class="contact" id="contact">
+            <p>You can connect with me on email-skaliasgar2412@icloud.com or you can contact me on 9820716710.</p>
+        </div>
+        <img src="star.png" class="star">
+        <footer>
+            <p>&copy; 2021-This is footer!</p>
+        </footer>
+</body>
+</html>
