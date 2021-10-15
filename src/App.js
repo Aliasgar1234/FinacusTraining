@@ -1,51 +1,66 @@
-import React, { useState } from 'react';
+import Cart from './components/Cart/Cart';
+import Layout from './components/Layout/Layout';
+import Products from './components/Shop/Products';
+import { useSelector, useDispatch } from 'react-redux';
+import { Fragment, useEffect } from 'react';
+import { uiActions } from './store/ui-slice';
+import Notification from './components/UI/Notification';
 
-import CourseGoalList from './components/CourseGoals/CourseGoalList/CourseGoalList';
-import CourseInput from './components/CourseGoals/CourseInput/CourseInput';
-import './App.css';
+let isInitial = true;
 
-const App = () => {
-  const [courseGoals, setCourseGoals] = useState([
-    { text: 'Do all exercises!', id: 'g1' },
-    { text: 'Finish the course!', id: 'g2' }
-  ]);
+function App() {
+  const dispatch = useDispatch();
+  const showCart = useSelector((state) => state.ui.cartIsVisible);
+  const cart = useSelector(state => state.cart);
+  const notification = useSelector(state => state.ui.notification);
 
-  const addGoalHandler = enteredText => {
-    setCourseGoals(prevGoals => {
-      const updatedGoals = [...prevGoals];
-      updatedGoals.unshift({ text: enteredText, id: Math.random().toString() });
-      return updatedGoals;
+  useEffect(() => {
+    const sendCartData = async () => {
+      dispatch(uiActions.showNotification({
+        status: 'pending',
+        title: 'Sending..',
+        message: 'Sending cart data!',
+      }));
+      const response = await fetch('https://react-http-fc80c-default-rtdb.firebaseio.com/cart.json',
+        {
+          method: 'PUT',
+          body: JSON.stringify(cart),
+        });
+
+      if (!response.ok) {
+        throw new Error('Sending cart data failed');
+      }
+
+      dispatch(uiActions.showNotification({
+        status: 'success',
+        title: 'Success!',
+        message: 'Sent cart data successfully!',
+      }));
+    };
+
+    if(isInitial){
+      isInitial=false;
+      return;
+    }
+
+    sendCartData().catch(error => {
+      dispatch(uiActions.showNotification({
+        status: 'error',
+        title: 'Error!',
+        message: 'Sending cart data failed!',
+      }));
     });
-  };
-
-  const deleteItemHandler = goalId => {
-    setCourseGoals(prevGoals => {
-      const updatedGoals = prevGoals.filter(goal => goal.id !== goalId);
-      return updatedGoals;
-    });
-  };
-
-  let content = (
-    <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
-  );
-
-  if (courseGoals.length > 0) {
-    content = (
-      <CourseGoalList items={courseGoals} onDeleteItem={deleteItemHandler} />
-    );
-  }
+  }, [cart, dispatch]);
 
   return (
-      <div>
-      <section id="goal-form">
-        <CourseInput onAddGoal={addGoalHandler} />
-      </section>
-      <section id="goals">
-        {content}
-      </section>
-      </div>
-
+    <Fragment>
+     {notification && <Notification status={notification.status} title={notification.title} message={notification.message}/>}
+    <Layout>
+      {showCart && <Cart />}
+      <Products />
+    </Layout>
+    </Fragment>
   );
-};
+}
 
 export default App;
