@@ -1,32 +1,32 @@
-import { Route, Switch, Redirect } from 'react-router-dom';
-import AllQuotes from './pages/AllQuotes';
-import QuoteDetails from './pages/QuoteDetail';
-import NewQuotes from './pages/NewQuote';
-import Layout from './components/layout/Layout';
-import NotFound  from './pages/NotFound';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {  useState } from "react";
+import Header from "./components/Layout/Header";
+import Home from "./components/Layout/Home";
+import './css/style.css';
+import Cart from './components/Cart/Cart';
+import CartProvider from './store/CartProvider';
 
 function App() {
+
+  const [cartIsShown, setCartIsShown]= useState(false);
+
+  const showCartHandler = () =>{
+    setCartIsShown(true);
+  };
+
+  const hideCartHandler = () =>{
+    setCartIsShown(false);
+  };
+
   return (
-    <Layout>
-      <Switch>
-        <Route path='/' exact>
-          <Redirect to='/quotes'></Redirect>
-        </Route>
-        <Route path='/quotes' exact>
-          <AllQuotes />
-        </Route>
-        <Route path='/quotes/:quoteId'>
-          <QuoteDetails />
-        </Route>
-        <Route path='/new-quote'>
-          <NewQuotes />
-        </Route>
-        <Route path='*'>
-          <NotFound/>
-        </Route>
-      </Switch>
-    </Layout>
+    <CartProvider>
+      {cartIsShown && <Cart onClose={hideCartHandler} />}
+      <Header onShowCart={showCartHandler} /> 
+      <Home/>  
+    </CartProvider>
   );
 }
 
 export default App;
+
+
