@@ -1,32 +1,21 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {  useState } from "react";
-import Header from "./components/Layout/Header";
-import Home from "./components/Layout/Home";
-import './css/style.css';
-import Cart from './components/Cart/Cart';
-import CartProvider from './store/CartProvider';
+import Temp from './Temp';
+import './App.css'
+import { Fragment } from 'react';
+import Header from './header';
+import AvailableProduct from './AvailableProduct';
+import Navigation from './Nav';
+
 
 function App() {
-
-  const [cartIsShown, setCartIsShown]= useState(false);
-
-  const showCartHandler = () =>{
-    setCartIsShown(true);
-  };
-
-  const hideCartHandler = () =>{
-    setCartIsShown(false);
-  };
-
   return (
-    <CartProvider>
-      {cartIsShown && <Cart onClose={hideCartHandler} />}
-      <Header onShowCart={showCartHandler} /> 
-      <Home/>  
-    </CartProvider>
+    <Fragment>
+      <header >
+        <h1>React</h1>
+
+        <Navigation />
+      </header>
+    </Fragment>
   );
 }
 
 export default App;
-
-
